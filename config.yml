@@ -1,0 +1,20 @@
+language: ar
+
+pipeline:
+- name: rasa_nlu_examples.tokenizers.StanzaTokenizer
+  lang: "ar"
+  cache_dir: "/Users/riapinjani/stanza_resources"
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+  
+policies:
+- name: MemoizationPolicy
+- name: RulePolicy
+
+
