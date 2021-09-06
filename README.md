@@ -115,7 +115,7 @@ rasa x
 ```
 9.Include example image
 
-[rasax](rasax.png)
+![rasax](rasax.png)
 
 10. Ending Note
 
