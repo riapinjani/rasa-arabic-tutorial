@@ -103,7 +103,7 @@ steps:
 6. Configuration
 [Insert github link for config.yml]
 
-Elaborate on pipeline used
+  Elaborate on pipeline used
 
 7. Train your model
 ```
@@ -115,6 +115,7 @@ rasa x
 ```
 9.Include example image
 
+[rasax](rasax.png)
 
 10. Ending Note
 
