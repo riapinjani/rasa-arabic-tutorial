@@ -1,4 +1,7 @@
 # rasa-arabic-tutorial
+
+Medium Draft
+
 Build your chatbot in Arabic with Rasa: A Complete Guide
 
 1. Short intro about chatbots and need for multilingual agents
