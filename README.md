@@ -25,7 +25,7 @@ Once your project has been initiated, use the below command so that you are able
 ```
 pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 ```
-Within your current project directory, create a new python file and paste the below code.
+Within your current project directory, create a new python file named download_stanza.py and paste the below code.
 
 ```python
 import stanza
@@ -34,11 +34,14 @@ nlp = stanza.Pipeline('ar', processors={'ner': 'AQMAR'})
 ```
 Run requirement.py to download stanza for arabic. 
 ```
-python requirements.py
+python download_stanza.py
 ```
-You are now ready to add training data for your Arabic Language Bot!
 
 3. **Describe RASA NLU; Specify intents & entities**
+
+You are now ready to add training data for your Arabic Language Bot!
+
+
 ```yml
 version: "2.0"
 nlu:
@@ -80,6 +83,9 @@ examples: |
 - هل تفتح 24 ساعة في اليوم
 ```
 4. **Describe NLG; Specify responses**
+
+Specify responses for each of the intents defined above in domain.yml.
+
 ```yml
 responses:
 utter_greet:
@@ -92,6 +98,9 @@ utter_timings:
 - text: نحن منفتحون من الأحد إلى الخميس ، من الساعة 9:00 إلى الساعة 6:00 مساءً
 ```
 5. **Specify rules**
+
+rules.yml
+
 ```yml
 version: "2.0"
 rules:
@@ -122,10 +131,14 @@ steps:
   Elaborate on pipeline used
 
 7. **Train your model**
+
+To train your rasa model, you just need to run:
 ```
 rasa train
 ```
 8.**Interact with your bot using Rasa X**
+
+To interact with your bot, just run:
 ```
 rasa x
 ```
