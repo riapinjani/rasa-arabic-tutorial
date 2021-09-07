@@ -4,9 +4,9 @@ Medium Draft
 
 Build your chatbot in Arabic with Rasa: A Complete Guide
 
-1. Short intro about chatbots and need for multilingual agents
+1. **Short intro about chatbots and need for multilingual agents**
 
-2. Set up 
+2. **Set up**
 Suggest/Include resource for creating a python virtual env
 ```
 pip3 install rasa==2.7.1
@@ -26,7 +26,7 @@ nlp = stanza.Pipeline('ar', processors={'ner': 'AQMAR'})
 ```
 python requirements.py
 ```
-3. Describe RASA NLU; Specify intents & entities
+3. **Describe RASA NLU; Specify intents & entities**
 ```yml
 version: "2.0"
 nlu:
@@ -67,7 +67,7 @@ examples: |
 - في أي وقت يمكن أن آتي
 - هل تفتح 24 ساعة في اليوم
 ```
-4. Describe NLG; Specify responses
+4. **Describe NLG; Specify responses**
 ```yml
 responses:
 utter_greet:
@@ -79,7 +79,7 @@ utter_location:
 utter_timings:
 - text: نحن منفتحون من الأحد إلى الخميس ، من الساعة 9:00 إلى الساعة 6:00 مساءً
 ```
-5. Specify rules
+5. **Specify rules**
 ```yml
 version: "2.0"
 rules:
@@ -103,22 +103,22 @@ steps:
 - intent: timings
 - action: utter_timings
 ```
-6. Configuration
+6. **Configuration**
 [Insert github link for config.yml]
 
   Elaborate on pipeline used
 
-7. Train your model
+7. **Train your model**
 ```
 rasa train
 ```
-8.Interact with your bot using Rasa X
+8.**Interact with your bot using Rasa X**
 ```
 rasa x
 ```
-9.Include example image
+9.**Include sample image**
 
 ![rasax](rasax.png)
 
-10. Ending Note
+10. **Ending Note**
 
