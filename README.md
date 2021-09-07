@@ -41,6 +41,9 @@ python download_stanza.py
 
 You are now ready to add training data for your Arabic Language Bot!
 
+Our first step is to specify user utterances in data/nlu.yml. User utterances are classified unter distinct intents.
+For the intent 'greet', i have specified multiple ways in which one may greet in arabic. Generally speaking, higher number of training examples generally lead to better performance. 
+
 
 ```yml
 version: "2.0"
@@ -99,7 +102,9 @@ utter_timings:
 ```
 5. **Specify rules**
 
-rules.yml
+Once we have specified intents, entitites and responses, we must define how the bot is supposed to respond once a particular intent is identified. 
+This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For out example, we will stick to rules. These can be defined in data/rules.yml as:
+
 
 ```yml
 version: "2.0"
