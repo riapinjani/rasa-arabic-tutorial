@@ -2,7 +2,7 @@
 
 Medium Draft
 
-Build your chatbot in Arabic with Rasa: A Complete Guide
+**Build your chatbot in Arabic with Rasa: A Complete Guide**
 
 1. **Introduction**
 
@@ -34,7 +34,7 @@ Run download_stanza.py to download stanza for arabic.
 ```
 python download_stanza.py
 ```
-3. **Describe RASA NLU; Specify intents & entities**
+3. **RASA NLU; Specify intents & entities**
 
 You are now ready to add training data for your Arabic Language Bot!
 
@@ -84,7 +84,7 @@ examples: |
 - في أي وقت يمكن أن آتي
 - هل تفتح 24 ساعة في اليوم
 ```
-4. **Describe NLG; Specify responses**
+4. **RASA CORE; Specify responses**
 
 Specify responses for each of the intents defined above in domain.yml.
 
@@ -102,7 +102,7 @@ utter_timings:
 5. **Specify rules**
 
 Once we have specified intents, entitites and responses, we must define how the bot is supposed to respond once a particular intent is identified. 
-This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For out example, we will stick to rules. These can be defined in data/rules.yml as:
+This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For our example, we will stick to rules. These can be defined in data/rules.yml as:
 
 
 ```yml
@@ -128,7 +128,7 @@ steps:
 - intent: timings
 - action: utter_timings
 ```
-6. **Configuration**
+6. **Model Configuration**
 
 ```
 language: ar
