@@ -4,12 +4,12 @@ Medium Draft
 
 # **Build your chatbot in Arabic with Rasa: A Complete Guide**
 
-## 1. **Introduction**
+### 1. **Introduction**
 
 Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. This article talks about building a chatbot in the Arabic Language using [rasa](https://rasa.com/). 
 
 
-## 2. **Set up**
+### 2. **Set up**
 
 To get started, you can [install rasa](https://rasa.com/docs/rasa/installation/) using python (above 3.6)
 ```
