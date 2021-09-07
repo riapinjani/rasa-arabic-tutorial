@@ -6,30 +6,38 @@ Build your chatbot in Arabic with Rasa: A Complete Guide
 
 1. **Short intro about chatbots and need for multilingual agents**
 
-Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. This article talks about building a chatbot in the Arabic Language using [rasa](https://rasa.com/).
+Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. This article talks about building a chatbot in the Arabic Language using [rasa](https://rasa.com/). 
 
 
 2. **Set up**
 
 Suggest/Include resource for creating a python virtual env
+
+To get started, you can [install rasa](https://rasa.com/docs/rasa/installation/) using python (above 3.6)
 ```
 pip3 install rasa==2.7.1
+```
+Create a project using the following command:
+```
 rasa init
 ```
-StanzaTokenizer - download stanza for "ar" 
-Elaborate on pre trained language models
+Once your project has been initiated, use the below command so that you are able to use [stanza](https://stanfordnlp.github.io/stanza/) in your rasa nlu pipeline. Stanza is a Python NLP Package that supports many languages including Arabic.
 ```
 pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 ```
-requirement.py 
+Within your current project directory, create a new python file and paste the below code.
+
 ```python
 import stanza
 stanza.download('ar', processors={'ner': 'AQMAR'})
 nlp = stanza.Pipeline('ar', processors={'ner': 'AQMAR'})
 ```
+Run requirement.py to download stanza for arabic. 
 ```
 python requirements.py
 ```
+You are now ready to add training data for your Arabic Language Bot!
+
 3. **Describe RASA NLU; Specify intents & entities**
 ```yml
 version: "2.0"
