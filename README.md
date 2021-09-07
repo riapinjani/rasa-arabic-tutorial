@@ -11,8 +11,6 @@ Chatbots are computer programs build to simulate conversations with human users.
 
 2. **Set up**
 
-Suggest/Include resource for creating a python virtual env
-
 To get started, you can [install rasa](https://rasa.com/docs/rasa/installation/) using python (above 3.6)
 ```
 pip3 install rasa==2.7.1
@@ -21,7 +19,7 @@ Create a project using the following command:
 ```
 rasa init
 ```
-Once your project has been initiated, use the below command so that you are able to use [stanza](https://stanfordnlp.github.io/stanza/) in your rasa nlu pipeline. Stanza is a Python NLP Package that supports many languages including Arabic.
+Once your project has been initiated, use the below command so that you are able to use [stanza](https://stanfordnlp.github.io/stanza/) in your rasa nlu pipeline. Stanza is a Python NLP Package that supports many languages including Arabic. You can view performance metrics for Stanza's pretrained model [here](https://stanfordnlp.github.io/stanza/performance.html).
 ```
 pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 ```
@@ -36,13 +34,14 @@ Run download_stanza.py to download stanza for arabic.
 ```
 python download_stanza.py
 ```
-
 3. **Describe RASA NLU; Specify intents & entities**
 
 You are now ready to add training data for your Arabic Language Bot!
 
 Our first step is to specify user utterances in data/nlu.yml. User utterances are classified unter distinct intents.
 For the intent 'greet', i have specified multiple ways in which one may greet in arabic. Generally speaking, higher number of training examples generally lead to better performance. 
+
+We can also define entities in our data/nlu.yml file. Entities are essentially defined as structured information inside a user's message. Common examples include names, dates, money etc. Here, i have defined the 'LOC' entity which is a part of Stanza’s pretrained NER model for Arabic.
 
 
 ```yml
@@ -131,9 +130,27 @@ steps:
 ```
 6. **Configuration**
 
-[Insert github link for config.yml]
+```
+language: ar
 
-  Elaborate on pipeline used
+pipeline:
+- name: rasa_nlu_examples.tokenizers.StanzaTokenizer
+  lang: "ar"
+  cache_dir: ".../stanza_resources"
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+  
+policies:
+- name: MemoizationPolicy
+- name: RulePolicy
+```
+
 
 7. **Train your model**
 
