@@ -32,7 +32,7 @@ import stanza
 stanza.download('ar', processors={'ner': 'AQMAR'})
 nlp = stanza.Pipeline('ar', processors={'ner': 'AQMAR'})
 ```
-Run requirement.py to download stanza for arabic. 
+Run download_stanza.py to download stanza for arabic. 
 ```
 python download_stanza.py
 ```
