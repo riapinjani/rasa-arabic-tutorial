@@ -1,15 +1,15 @@
-# rasa-arabic-tutorial
+rasa-arabic-tutorial
 
 Medium Draft
 
-**Build your chatbot in Arabic with Rasa: A Complete Guide**
+# **Build your chatbot in Arabic with Rasa: A Complete Guide**
 
-1. **Introduction**
+##1. **Introduction**
 
 Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. This article talks about building a chatbot in the Arabic Language using [rasa](https://rasa.com/). 
 
 
-2. **Set up**
+##2. **Set up**
 
 To get started, you can [install rasa](https://rasa.com/docs/rasa/installation/) using python (above 3.6)
 ```
@@ -34,7 +34,7 @@ Run download_stanza.py to download stanza for arabic.
 ```
 python download_stanza.py
 ```
-3. **RASA NLU; Specify intents & entities**
+##3. **RASA NLU; Specify intents & entities**
 
 You are now ready to add training data for your Arabic Language Bot!
 
@@ -84,7 +84,7 @@ examples: |
 - في أي وقت يمكن أن آتي
 - هل تفتح 24 ساعة في اليوم
 ```
-4. **RASA CORE; Specify responses**
+##4. **RASA CORE; Specify responses**
 
 Specify responses for each of the intents defined above in domain.yml.
 
@@ -99,7 +99,7 @@ utter_location:
 utter_timings:
 - text: نحن منفتحون من الأحد إلى الخميس ، من الساعة 9:00 إلى الساعة 6:00 مساءً
 ```
-5. **Specify rules**
+##5. **Specify rules**
 
 Once we have specified intents, entitites and responses, we must define how the bot is supposed to respond once a particular intent is identified. 
 This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For our example, we will stick to rules. These can be defined in data/rules.yml as:
@@ -128,7 +128,7 @@ steps:
 - intent: timings
 - action: utter_timings
 ```
-6. **Model Configuration**
+##6. **Model Configuration**
 
 ```
 language: ar
@@ -152,21 +152,21 @@ policies:
 ```
 
 
-7. **Train your model**
+##7. **Train your model**
 
 To train your rasa model, you just need to run:
 ```
 rasa train
 ```
-8.**Interact with your bot using Rasa X**
+##8.**Interact with your bot using Rasa X**
 
 To interact with your bot, just run:
 ```
 rasa x
 ```
-9.**Include sample image**
+##9.**Include sample image**
 
 ![rasax](rasax.png)
 
-10. **Ending Note**
+##10. **Ending Note**
 
