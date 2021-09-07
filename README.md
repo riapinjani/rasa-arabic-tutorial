@@ -7,6 +7,7 @@ Build your chatbot in Arabic with Rasa: A Complete Guide
 1. **Short intro about chatbots and need for multilingual agents**
 
 2. **Set up**
+
 Suggest/Include resource for creating a python virtual env
 ```
 pip3 install rasa==2.7.1
@@ -104,6 +105,7 @@ steps:
 - action: utter_timings
 ```
 6. **Configuration**
+
 [Insert github link for config.yml]
 
   Elaborate on pipeline used
