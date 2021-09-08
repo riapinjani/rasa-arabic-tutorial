@@ -1,6 +1,6 @@
 #### rasa-arabic-tutorial
 
-####  Medium Draft
+####  Medium Draft: https://medium.com/@ria.pinjani/build-your-chatbot-in-arabic-with-rasa-a-complete-guide-8a5b314cf01c
 
 ## **Build your chatbot in Arabic with Rasa: A Complete Guide**
 
