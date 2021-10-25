@@ -2,12 +2,10 @@
 
 ## **Build your chatbot in Arabic with Rasa: A Complete Guide**
 
-### 1. Introduction
-
 Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. 
 
 
-### 2. Set up
+### Set up
  
 I would highly recommend you to create a python virtual environment for your project before getting started. You can do so by following a few simple steps listed below:
 
@@ -79,7 +77,7 @@ Run download_stanza.py to download stanza for arabic.
 ```
 python download_stanza.py
 ```
-### 3. RASA NLU; Specify intents & entities
+### RASA NLU; Specify intents & entities
 
 You are now ready to add training data for your Arabic Language Bot!
 
@@ -129,7 +127,7 @@ examples: |
 - في أي وقت يمكن أن آتي
 - هل تفتح 24 ساعة في اليوم
 ```
-### 4. RASA CORE; Specify responses
+### RASA CORE; Specify responses
 
 Specify responses for each of the intents defined above in domain.yml.
 
@@ -144,7 +142,7 @@ utter_location:
 utter_timings:
 - text: نحن منفتحون من الأحد إلى الخميس ، من الساعة 9:00 إلى الساعة 6:00 مساءً
 ```
-### 5. Specify rules
+### Specify rules
 
 Once you have specified intents, entities and responses, you must define the conversation pattern the bot should follow. This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For our example, we will stick to rules. For writing rules, you should start with the intent that starts the conversation and then specify the action that the bot should respond with. These can be defined in data/rules.yml as:
 
@@ -172,7 +170,7 @@ steps:
 - intent: timings
 - action: utter_timings
 ```
-### 6. Model Configuration
+### Model Configuration
 
 The next step is to specify the Pipeline Components that your NLU model would use, as well as the Policies your core model would use to predict the next action. You can specify the pipeline and policies you would like to use in config.yml.
 
@@ -198,13 +196,13 @@ policies:
 ```
 
 
-### 7. Train your model
+### Train your model
 
 To train your rasa model, you just need to run:
 ```
 rasa train
 ```
-### 8.Interact with your bot using Rasa X
+### Interact with your bot using Rasa X
 
 To interact with your bot, just run:
 ```
