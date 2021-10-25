@@ -1,25 +1,70 @@
 #### rasa-arabic-tutorial
 
-####  Medium Draft: https://medium.com/@ria.pinjani/build-your-chatbot-in-arabic-with-rasa-a-complete-guide-8a5b314cf01c
-
 ## **Build your chatbot in Arabic with Rasa: A Complete Guide**
 
 ### 1. Introduction
 
-Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. This article talks about building a chatbot in the Arabic Language using [rasa](https://rasa.com/). 
+Chatbots are computer programs build to simulate conversations with human users. This can be achived through NLP, a branch of Artificial Intellegence that helps computers understand human language. As chatbots gain popularity globally, there is increasing need to build multilingual agents that can cater to regions with linguistic diversity. This is likely to have a huge impact on customer engagement and satisfaction, and can prove to be a great asset for any organization. 
 
 
 ### 2. Set up
+ 
+I would highly recommend you to create a python virtual environment for your project before getting started. You can do so by following a few simple steps listed below:
 
-To get started, you can [install rasa](https://rasa.com/docs/rasa/installation/) using python (above 3.6)
+Install the virtualenv package using pip
+
 ```
-pip3 install rasa==2.7.1
+pip install virtualenv
 ```
+
+Next, specify the local directory where you would like to create your virtual environment. I used my project directory 'rasa-arabic'.
+
+```
+virtualenv rasa-arabic
+```
+
+Lastly, activate the virtual environment
+
+Mac OS / Linux
+
+```
+source rasa-arabic/bin/activate
+```
+
+Windows
+
+```
+rasa-arabic\Scripts\activate
+```
+
+Once your virtual environment is activated, install Rasa using pip 
+```
+pip3 install rasa
+```
+
 Create a project using the following command:
 ```
 rasa init
 ```
-Once your project has been initiated, use the below command so that you are able to use [stanza](https://stanfordnlp.github.io/stanza/) in your rasa nlu pipeline. Stanza is a Python NLP Package that supports many languages including Arabic. You can view performance metrics for Stanza's pretrained model [here](https://stanfordnlp.github.io/stanza/performance.html).
+
+These are the files created for the initial project structure;
+
+- actions: code for custom actions
+
+- data: training data for Rasa NLU & Core
+
+- models: where your model is stored
+
+- config.yml: configuration for Rasa NLU & Core
+
+- credentials.yml: credentials for the voice and/or chat platforms the bot is using
+
+- domain.yml: all intents, entities, slots and action your bot should know about are defined here
+
+- endpoints.yml: endpoints the bot can use for connecting to actions or databases etc.
+
+To build a bot in Arabic, it's a good idea to use a pre-trained language model. We are going to make use of Stanza; a Python NLP Package that supports many languages including Arabic. Once the project has been initiated, run the below command so that you are able to use stanza in your Rasa NLU pipeline. You can view performance metrics for Stanza's pre-trained model here.
+
 ```
 pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 ```
@@ -101,8 +146,7 @@ utter_timings:
 ```
 ### 5. Specify rules
 
-Once we have specified intents, entitites and responses, we must define how the bot is supposed to respond once a particular intent is identified. 
-This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For our example, we will stick to rules. These can be defined in data/rules.yml as:
+Once you have specified intents, entities and responses, you must define the conversation pattern the bot should follow. This can be done using stories or rules. Stories are generally used for more complex, multi-turn conversations. For our example, we will stick to rules. For writing rules, you should start with the intent that starts the conversation and then specify the action that the bot should respond with. These can be defined in data/rules.yml as:
 
 
 ```yml
@@ -129,6 +173,8 @@ steps:
 - action: utter_timings
 ```
 ### 6. Model Configuration
+
+The next step is to specify the Pipeline Components that your NLU model would use, as well as the Policies your core model would use to predict the next action. You can specify the pipeline and policies you would like to use in config.yml.
 
 ```
 language: ar
@@ -168,5 +214,5 @@ rasa x
 
 ![rasax](rasax.png)
 
-### 10. Ending Note
+You are done! The chatbot is ready to be deployed and integrated with any number of channels including Facebook, Slack or your own website. You can find instructions to do so here. Additionally, you can connect Rasa to an external database for storing conversation history. Details for the configuration can be found here.
 
