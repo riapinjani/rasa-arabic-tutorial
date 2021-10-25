@@ -210,8 +210,6 @@ To interact with your bot, just run:
 ```
 rasa x
 ```
-### 9.Include sample image
-
 ![rasax](rasax.png)
 
 You are done! The chatbot is ready to be deployed and integrated with any number of channels including Facebook, Slack or your own website. You can find instructions to do so here. Additionally, you can connect Rasa to an external database for storing conversation history. Details for the configuration can be found here.
